@@ -1,0 +1,110 @@
+
+<ion-view>
+<!-- header -->
+<ion-header-bar align-title="center" class="bar-positive">
+    <span class="button" ng-bind="getTownship" ></span>
+    <span class="button button-assertive" ng-click="getRelLocation()">定位</span>
+    <span class="button text-danger" ng-click="getLocationDetails()">详细</span>
+
+</ion-header-bar>
+
+<div class="tabs-striped tabs-top tabs-background-light tabs-color-assertive">
+      <div class="tabs">
+        <a class="tab-item {{newItem.active}}" ng-class=" {active:active==newItem}"  ng-repeat="newItem in newList" href="#" ng-bind="newItem.title" ng-click="activeNew(newItem)">
+          
+        </a>
+        <!-- <a class="tab-item" ng-click="focusNews('工作动态')" href="#">    
+          工作动态
+        </a>
+        <a class="tab-item " ng-click="focusNews('通知公告')" href="#">
+          通知公告
+        </a>
+         <a class="tab-item " ng-click="focusNews('政务公开')" href="#">
+          政务公开
+        </a>
+         <a class="tab-item " ng-click="focusNews('乡镇风采')" href="#">
+          乡镇风采
+        </a> -->
+      </div>
+  </div> 
+
+<!-- endheader-->
+ 
+<ion-content style="margin-top:48px;">
+  
+                <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+                <!-- <ion-list>
+                    <ion-item ng-repeat="item in items" ng-bind="item.name"></ion-item>
+                </ion-list>
+                           -->
+    
+   <!-- 轮播-->
+      <div animation="slide-left-right-ios7">
+      <ion-slide-box active-slide="myActiveSlide" auto-play="true" does-continue="true">
+      <ion-slide>
+      <div class="box blue">
+      <img class="slideimg" src="http://www.yayao8.com/resources/img/carousel/carousel2.jpg">
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="box yellow">
+      <img class="slideimg" src="http://www.yayao8.com/resources/img/carousel/carousel1.jpg">
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="box pink">
+      <img class="slideimg" src="http://www.yayao8.com/resources/img/carousel/carousel3.jpg">
+      </div>
+    </ion-slide>
+    </ion-slide-box>
+      </div>
+      
+    <!-- end轮播-->
+     <!-- 新闻-->
+    <ion-list>
+  <ion-item  ng-repeat="item in items"
+            class="item-thumbnail-left">
+  
+    <img ng-if="item.img" ng-src="{{item.img}}">
+    <h2>{{item.title}}</h2>
+    <p style=" text-indent:0;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap;-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;">{{item.description}}</p>
+    <ion-option-button class="button-positive"
+                       ng-click="share(item)">
+      Share
+    </ion-option-button>
+    <ion-option-button class="button-info"
+                       ng-click="edit(item)">
+      Edit
+    </ion-option-button>
+    <ion-delete-button class="ion-minus-circled"
+                       ng-click="items.splice($index, 1)">
+    </ion-delete-button>
+    <ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+    </ion-reorder-button>
+
+  </ion-item>
+</ion-list>
+ <!-- end新闻-->
+<ion-infinite-scroll ng-if="vm.moredata" on-infinite="vm.loadMore()" distance="1%" ></ion-infinite-scroll>
+    </ion-content>
+</ion-view>
+
+<script id="locationDetails.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-content class="padding" >
+              <div class="list">
+            <label class="item ">
+               <span class="input-label ">天气</span>
+              <span class="text balanced" ng-bind="weatherInfo"></span>
+            </label>
+            <label class="item ">
+              <span class="input-label">详细地址</span>
+              <span class="text balanced" ng-bind="getLocation"></span>
+            </label>
+            <button class="button button-full button-positive" ng-click="liveWeather()">离开</button>
+            </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+

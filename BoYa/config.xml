@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.boya294941" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>博雅农村便民服务社区</name>
+  <description>
+        博雅农村便民服务社区
+    </description>
+  <author email="278076304@qq.com" href="http://mail.qq.com/">
+      聂跃
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="SplashScreenDelay" value="2000"/>
+  <preference name="FadeSplashScreenDuration" value="2000"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+  <platform name="android">
+              <icon src="res/android/logo.png" density="ldpi" />
+              <icon src="res/android/logo.png" density="mdpi" />
+              <icon src="res/android/logo.png" density="hdpi" />
+              <icon src="res/android/logo.png" density="xhdpi" />
+ </platform>
+    <splash src="res/screen/android/start.png" density="land-hdpi"/>
+    <splash src="res/screen/android/start.png" density="land-ldpi"/>
+    <splash src="res/screen/android/start.png" density="land-mdpi"/>
+    <splash src="res/screen/android/start.png" density="land-xhdpi"/>
+
+    <splash src="res/screen/android/start.png" density="port-hdpi"/>
+    <splash src="res/screen/android/start.png" density="port-ldpi"/>
+    <splash src="res/screen/android/start.png" density="port-mdpi"/>
+    <splash src="res/screen/android/start.png" density="port-xhdpi"/>
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="SplashScreenDelay" value="5000" />
+</widget>
